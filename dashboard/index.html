@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Launch Ledger — the token launch radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="mast">
+  <div class="mast-left">
+    <div class="kicker">Token launch radar &middot; DefiLlama snapshot <span id="asof"></span></div>
+    <h1>The Launch Ledger</h1>
+    <div class="sub">Which pre-token protocol is worth farming next — and what to do about it.</div>
+  </div>
+  <div class="mast-right">
+    <div class="mast-stat"><b id="m-scanned"></b><span>protocols scanned</span></div>
+    <div class="mast-stat"><b id="m-ranked"></b><span>ranked</span></div>
+    <div class="mast-stat"><b id="m-total"></b><span>total implied value</span></div>
+  </div>
+</header>
+
+<p class="formula" id="formula"></p>
+
+<p class="recon" id="recon"></p>
+
+<p class="verdict-note">Read the Farm call right: <b>rank is launch size; the call is pay per $1,000 farmed.</b> The biggest launches dilute each farmer&rsquo;s slice, so #1&ndash;#2 pay a thin slice and still rank #1&ndash;#2.</p>
+
+<nav class="tabs" id="tabs"></nav>
+
+<div class="filters" id="filters">
+  <input id="f-search" type="search" placeholder="Search name or slug&hellip;" aria-label="Search">
+  <select id="f-tier" aria-label="Tier">
+    <option value="">Tier: all</option>
+    <option value="0">Watchlist</option>
+    <option value="1">Above floor</option>
+    <option value="2">Early find</option>
+  </select>
+  <select id="f-cat" aria-label="Category"><option value="">Category: all</option></select>
+  <select id="f-chain" aria-label="Chain"><option value="">Chain: all</option></select>
+  <select id="f-tvl" aria-label="Minimum TVL">
+    <option value="0">Min TVL: any</option>
+    <option value="10000000">Min TVL: $10M</option>
+    <option value="50000000">Min TVL: $50M</option>
+    <option value="100000000">Min TVL: $100M</option>
+    <option value="1000000000">Min TVL: $1B</option>
+  </select>
+  <select id="f-7d" aria-label="Seven-day TVL">
+    <option value="">7-day: all</option>
+    <option value="gain">7-day: gaining</option>
+    <option value="fall">7-day: falling</option>
+  </select>
+  <button id="f-reset" type="button">Reset</button>
+  <span class="shown" id="shown"></span>
+</div>
+
+<main id="view"></main>
+
+<footer class="foot">
+  <p><b>How to read this page.</b> Every implied value is this entry&rsquo;s own model, computed at run time from the snapshot — TVL, 7-day change and days with no token — never from a hand-kept list of names. &ldquo;Records no token&rdquo; means DefiLlama&rsquo;s record carries no token; it is not proof one does not exist, and nothing here predicts a token will be issued, or when. Farm plans are positioning, not a promise: never share a seed phrase, and claim only from links the protocol itself publishes. <a href="#/model">How a value is set &rarr;</a></p>
+  <p>758 = 198 ranked + 416 already trading + 144 set aside. 198 = 40 watchlist + 158 early finds (138 below floor + 20 above floor).</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
